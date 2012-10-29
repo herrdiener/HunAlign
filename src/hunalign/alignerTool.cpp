@@ -258,7 +258,7 @@ double alignerToolWithObjects( const DictionaryItems& dictionary,
 
   const int minimalThickness = 500;
 
-  const double quasiglobal_maximalSizeInMegabytes = 4000;
+  const double quasiglobal_maximalSizeInMegabytes = 16000;
 
   const int maximalThickness = (int) (
     quasiglobal_maximalSizeInMegabytes
