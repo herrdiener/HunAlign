@@ -1,6 +1,6 @@
 HunAlign Project Intermediate Report
 ========================================
-Nicolas Diener, Victor Bielawski
+Nicolas Diener, Victor Bielawski. November 5, 2012.
 
 Summary
 ----------------------------
@@ -8,6 +8,9 @@ When aligning a corpus too large for the memory limit (discussed below),
 HunAlign downgrades the thickness of its alignment matrix (i.e. the area of a
 theoretical square grid that it actually uses) and, below a certain thickness
 and with certain corpora, tries to write to nonexistent memory and crashes.
+At this point, the best way to make the algorithm usable for larger data sets
+is to allow automatically-created dictionaries to be built up through multiple
+alignment steps, and to fail gracefully whenever the thickness is overstepped.
 
 Findings
 ----------------------------
@@ -48,4 +51,4 @@ report the error in a better way than a segfault, but we may also try to
 dynamically recompute a single row with more thickness. If there is time left,
 another possible improvement would be to allow non-linear boundaries for the
 usable portion of the matrix, since real-life alignments tend to have more
-deviation from a perfect diagonal in the middle of the matrix.
+deviation from a perfectly linear area while in the middle of the text.
