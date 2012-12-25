@@ -6,7 +6,7 @@ objects = alignerTool.o alignment.o bloom.o bookToMatrix.o cooccurrence.o cooccu
 
 SHELL = /bin/bash
 CXX = g++
-CPPFLAGS = -O9 -ffast-math -funroll-loops -I ../include
+CPPFLAGS = -g -Wall -O9 -ffast-math -funroll-loops -I ../include -D_GLIBCXX_DEBUG
 LIBS = -lstdc++
 RM = rm -f
 

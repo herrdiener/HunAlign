@@ -10,3 +10,6 @@
 *.lai
 *.la
 *.a
+
+# Vim swap files
+*.sw[a-p]

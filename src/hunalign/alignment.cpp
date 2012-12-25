@@ -343,7 +343,7 @@ void align( const AlignMatrix& w, const SentenceValues& huLength, const Sentence
 
   buildDynProgMatrix( w, huLength, enLength, v, trellis );
 
-//x   std::cout << std::endl;
+   std::cout << std::endl;
 //x   dumpAlignMatrix(v);
 //x   std::cout << std::endl;
 //x   dumpTrelliMatrix(trellis);

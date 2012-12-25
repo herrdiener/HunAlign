@@ -394,7 +394,8 @@ double alignerToolWithObjects( const DictionaryItems& dictionary,
             std::cerr << reDictionary.size() - size << " new dictionary items found." << std::endl;
 	    if (alignParameters.autoDictionaryDumpFilename!="")
 	    {
-	      std::ofstream dictStream(alignParameters.autoDictionaryDumpFilename.c_str());
+	      std::ofstream dictStream(alignParameters.autoDictionaryDumpFilename.c_str(), std::ios::out | std::ios::app);
+          dictStream << "---STARTING-NEW-FILE @ ---STARTING-NEW-FILE" << std::endl;
 	      for ( int i=size; i<reDictionary.size(); ++i )
 	      {
 	        dictStream << reDictionary[i].first[0] << " @ " << reDictionary[i].second[0] << std::endl;
@@ -445,7 +446,7 @@ double alignerToolWithObjects( const DictionaryItems& dictionary,
     std::cerr << "Trail postprocessed by topology." << std::endl;
   }
 
-  // for ( int i=0; i<bestTrail.size(); ++i ) { std::cerr << bestTrail[i].first <<" "<< bestTrail[i].second << std::endl; }
+  for ( int i=0; i<bestTrail.size(); ++i ) { std::cerr << bestTrail[i].first <<" "<< bestTrail[i].second << std::endl; }
 
   bool quasiglobal_spaceOutBySentenceLength = true;
   std::cerr << "quasiglobal_spaceOutBySentenceLength is set to " << quasiglobal_spaceOutBySentenceLength << std::endl;
@@ -720,12 +721,12 @@ int main_alignerTool(int argC, char* argV[])
     std::string autoDictDumpArgumentname = "autodict";
     if (args.find(autoDictDumpArgumentname)!=args.end())
     {
-      if (batchMode)
+      /*if (batchMode)
       {
         std::cerr << "-batch and -" << autoDictDumpArgumentname << " are incompatible switches." << std::endl;
         throw "argument error";
       }
-      else
+      else*/
       {
         alignParameters.autoDictionaryDumpFilename = args[autoDictDumpArgumentname].dString ;
         args.erase(autoDictDumpArgumentname);
